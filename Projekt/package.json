@@ -1,0 +1,17 @@
+{
+  "name": "blackjack-fp",
+  "version": "1.0.0",
+  "description": "Functional Programming Blackjack – M323 Project",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node src/index.ts",
+    "build:web": "tsc -p web/tsconfig.json",
+    "dev:web": "tsc -p web/tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.35",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

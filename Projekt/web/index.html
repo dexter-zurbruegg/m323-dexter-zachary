@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casino Royale — M323 FP Edition</title>
+  <meta name="description" content="Browser-based Blackjack and 5-Card Draw Poker. Built with functional TypeScript for the M323 module." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ LOBBY ═══ -->
+<div id="screen-lobby" class="screen active">
+  <div class="lobby-header">
+    <h1>🂡 CASINO ROYALE</h1>
+    <p>M323 Functional Programming Edition</p>
+    <div class="balance-display"></div>
+  </div>
+
+  <div class="game-grid">
+    <div class="game-card" id="play-blackjack">
+      <div class="game-icon">🂾</div>
+      <h2>Blackjack</h2>
+      <p>Beat the dealer to 21</p>
+      <button class="btn-primary">Play Now</button>
+    </div>
+    <div class="game-card" id="play-poker">
+      <div class="game-icon">🂭</div>
+      <h2>5-Card Draw</h2>
+      <p>Best poker hand wins</p>
+      <button class="btn-primary">Play Now</button>
+    </div>
+  </div>
+
+  <div class="lobby-footer">
+    <button id="reset-balance" class="btn-ghost">↺ Reset Balance</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ BLACKJACK ═══ -->
+<div id="screen-blackjack" class="screen">
+  <div class="table-header">
+    <button id="bj-back" class="btn-ghost">← Lobby</button>
+    <h2>♠ BLACKJACK ♠</h2>
+    <div class="balance-display"></div>
+  </div>
+
+  <div class="table">
+    <div class="hand-area">
+      <div class="hand-label">
+        <span>DEALER</span>
+        <span id="bj-dealer-score"></span>
+      </div>
+      <div id="bj-dealer-hand" class="hand"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="hand-area">
+      <div class="hand-label">
+        <span>YOU</span>
+        <span id="bj-player-score"></span>
+      </div>
+      <div id="bj-player-hand" class="hand"></div>
+    </div>
+  </div>
+
+  <div class="action-area">
+    <div id="bj-message" class="message"></div>
+    <div id="bj-actions" class="btn-row">
+      <button id="bj-hit"   class="btn-primary">Hit</button>
+      <button id="bj-stand" class="btn-secondary">Stand</button>
+    </div>
+    <div id="bj-new-game" class="btn-row" style="display:none">
+      <button id="bj-lobby-btn" class="btn-primary">← Back to Lobby</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ POKER ═══ -->
+<div id="screen-poker" class="screen">
+  <div class="table-header">
+    <button id="poker-back" class="btn-ghost">← Lobby</button>
+    <h2>♥ 5-CARD DRAW ♥</h2>
+    <div class="balance-display"></div>
+  </div>
+
+  <div class="table">
+    <div class="hand-area">
+      <div class="hand-label"><span>COMPUTER</span></div>
+      <div id="poker-computer-hand" class="hand"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="hand-area">
+      <div class="hand-label"><span>YOU — click cards to mark discards</span></div>
+      <div id="poker-player-hand" class="hand"></div>
+    </div>
+  </div>
+
+  <div class="action-area">
+    <div id="poker-message" class="message"></div>
+    <div id="poker-result"  class="poker-result" style="display:none"></div>
+    <div id="poker-actions" class="btn-row">
+      <button id="poker-draw" class="btn-primary">Draw Cards</button>
+    </div>
+    <button id="poker-lobby-btn" class="btn-ghost" style="margin-top:0.5rem">← Back to Lobby</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ BET MODAL ═══ -->
+<div id="bet-modal" class="modal-overlay">
+  <div class="modal">
+    <h3>Place Your Bet</h3>
+    <p id="bet-max-label"></p>
+    <input type="range" id="bet-input" min="1" max="1000" value="50" />
+    <div class="bet-value" id="bet-value">$50</div>
+    <div class="btn-row">
+      <button id="bet-cancel"  class="btn-ghost">Cancel</button>
+      <button id="bet-confirm" class="btn-primary">Confirm Bet</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
