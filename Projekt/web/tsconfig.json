@@ -8,8 +8,7 @@
         ],
         "strict": true,
         "skipLibCheck": true,
-        "outDir": ".",
-        "rootDir": "."
+        "outFile": "app.js"
     },
     "files": [
         "app.ts"
