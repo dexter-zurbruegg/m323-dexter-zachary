@@ -115,7 +115,31 @@ TypeScript's `Record<BlackjackOutcome, string>` ensures every outcome has a matc
 
 ## Testing
 
-There is no automated test suite. The following scenarios cover all critical paths and should be verified manually by opening `web/index.html` in a browser.
+### Automated Tests
+
+A lightweight, dependency-free test script (`web/test.ts`) verifies the core pure functions (like calculating complex Blackjack scores with Aces, or evaluating Poker hand ranks).
+
+To run the test suite:
+```bash
+npm run test
+```
+
+It contains assertions testing 5 key scenarios for our pure functions:
+
+- Evaluates if buildDeck creates exactly 52 valid cards.
+
+- Evaluates if dealCards splits the deck correctly without mutating the original deck string.
+
+- Evaluates calculatedBlackJackScore with standard cards.
+
+- Evaluates calculatedBlackJackScore correctly parsing Aces (treating them as 11 or 1 to prevent bust).
+
+- Evaluates evaluatePokerHand using a sample Flush, Full House, and Two Pair logic.
+
+
+### Manual Verification
+
+The following scenarios cover all interactive critical paths and should be verified manually by opening `web/index.html` in a browser.
 
 ### Blackjack
 

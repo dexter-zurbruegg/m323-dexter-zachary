@@ -4,7 +4,8 @@
   "description": "Functional Programming Casino — M323 Project",
   "scripts": {
     "build": "tsc -p web/tsconfig.json",
-    "watch": "tsc -p web/tsconfig.json --watch"
+    "watch": "tsc -p web/tsconfig.json --watch",
+    "test": "tsc -p web/tsconfig.test.json && node web/test.js"
   },
   "devDependencies": {
     "@types/node": "^20.19.35",
